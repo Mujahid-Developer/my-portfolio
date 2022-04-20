@@ -1,4 +1,5 @@
-import myPhoto from './assets/mujahid.png'
+import { Fragment } from "react";
+import myPhoto from "./assets/mujahid.png";
 import {
   FaGithub,
   FaTwitter,
@@ -11,6 +12,8 @@ import {
   FaJs,
   FaReact,
   FaPython,
+  FaCode,
+  FaGlobe,
 } from "react-icons/fa";
 import {
   SiAdobeaftereffects,
@@ -19,19 +22,17 @@ import {
   SiAdobephotoshop,
   SiFigma,
 } from "react-icons/si";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import Items from './Shared/Items';
-import { portfolio } from './portfolio';
-
-
+import { Tab } from "@headlessui/react";
+import Items from "./Shared/Items";
+import { portfolio } from "./portfolio";
 
 function App() {
   return (
     <div className="bg-white h-auto">
       <div className="grid grid-rows-1 lg:grid-cols-2 lg:h-screen ">
         {/* Details Section */}
-        <div className="lg:h-full bg-slate-900  text-white lg:p-8 pt-8 lg:order-1 order-2">
-          <header className="flex flex-col lg:items-start items-center">
+        <div className="lg:h-full  bg-slate-900  text-white lg:p-8 pt-8 lg:order-1 order-2">
+          <header className="flex flex-col lg:items-start items-center lg:mt-48">
             <div className="flex flex-col lg:items-start items-center gap-4">
               <h1 className="text-5xl font-bold">Mujahid Islam</h1>
               <p className="lg:text-2xl text-xl">
@@ -56,24 +57,64 @@ function App() {
             </div>
           </header>
           <main className="mt-4">
-            <Tabs className="">
-              <TabList className="flex gap-4 justify-between items-center bg-slate-800">
-                <Tab className="px-4 py-3  focus:tab-active focus:bg-slate-900 focus:border-white text-white">
-                  Specialize
+            <Tab.Group>
+              <Tab.List className="flex gap-4 justify-between items-center bg-slate-800 ">
+                <Tab as={Fragment}>
+                  {({ selected }) => (
+                    <button
+                      className={
+                        selected
+                          ? "px-5 py-3  focus:tab-active bg-yellow-500 focus:text-slate-900 text-slate-900 font-semibold"
+                          : "px-5 py-3  focus:tab-active   text-white  font-semibold"
+                      }
+                    >
+                      Specialize
+                    </button>
+                  )}
                 </Tab>
-                <Tab className="px-4 py-3  focus:tab-active focus:bg-slate-900 focus:border-white text-white">
-                  Skills
+                <Tab as={Fragment}>
+                  {({ selected }) => (
+                    <button
+                      className={
+                        selected
+                          ? "px-5 py-3  focus:tab-active bg-yellow-500 focus:text-slate-900 text-slate-900 font-semibold"
+                          : "px-5 py-3  focus:tab-active   text-white  font-semibold"
+                      }
+                    >
+                      Skills
+                    </button>
+                  )}
                 </Tab>
-                <Tab className="px-4 py-3  focus:tab-active focus:bg-slate-900 focus:border-white text-white">
-                  Portfolio
+                <Tab as={Fragment}>
+                  {({ selected }) => (
+                    <button
+                      className={
+                        selected
+                          ? "px-5 py-3  focus:tab-active bg-yellow-500 focus:text-slate-900 text-slate-900 font-semibold"
+                          : "px-5 py-3  focus:tab-active   text-white  font-semibold"
+                      }
+                    >
+                      Portfolio
+                    </button>
+                  )}
                 </Tab>
-                <Tab className="px-4 py-3  focus:tab-active focus:bg-slate-900 focus:border-white text-white">
-                  Testmonial
+                <Tab as={Fragment}>
+                  {({ selected }) => (
+                    <button
+                      className={
+                        selected
+                          ? "px-5 py-3  focus:tab-active bg-yellow-500 focus:text-slate-900 text-slate-900 font-semibold"
+                          : "px-5 py-3  focus:tab-active   text-white  font-semibold"
+                      }
+                    >
+                      Testmonial
+                    </button>
+                  )}
                 </Tab>
-              </TabList>
+              </Tab.List>
               {/* Specialize */}
-              <div className="px-2">
-                <TabPanel className="py-3 grid grid-cols-2 lg:grid-cols-4 gap-3">
+              <Tab.Panels className="px-2">
+                <Tab.Panel className="py-3 grid grid-cols-2 lg:grid-cols-4 gap-3">
                   <Items>
                     <FaLaptopCode size={40} />
                     <p className="mt-1">Web Development</p>
@@ -90,57 +131,77 @@ function App() {
                     <FaPencilRuler size={40} />
                     <p className="mt-1">UI/UX</p>
                   </Items>
-                </TabPanel>
+                </Tab.Panel>
 
                 {/* Skills */}
 
-                <TabPanel className="py-3 grid grid-cols-2 lg:grid-cols-4 gap-3">
+                <Tab.Panel className="py-3 grid grid-cols-2 lg:grid-cols-4 gap-3">
                   <Items>
                     <FaJs size={40} />
-                    <p className="mt-1">Web Development</p>
+                    <p className="mt-1">JavaScript</p>
                   </Items>
                   <Items>
                     <FaReact size={40} />
-                    <p className="mt-1">Motion Graphics</p>
+                    <p className="mt-1">React JS</p>
                   </Items>
                   <Items>
                     <FaPython size={40} />
-                    <p className="mt-1">Illustration</p>
+                    <p className="mt-1">Pythone</p>
                   </Items>
                   <Items>
                     <SiAdobeaftereffects size={40} />
-                    <p className="mt-1">UI/UX</p>
+                    <p className="mt-1">After Effects</p>
                   </Items>
                   <Items>
                     <SiAdobepremierepro size={40} />
-                    <p className="mt-1">UI/UX</p>
+                    <p className="mt-1">Premiere Pro</p>
                   </Items>
                   <Items>
                     <SiAdobeillustrator size={40} />
-                    <p className="mt-1">UI/UX</p>
+                    <p className="mt-1">Illustrator</p>
                   </Items>
                   <Items>
                     <SiAdobephotoshop size={40} />
-                    <p className="mt-1">UI/UX</p>
+                    <p className="mt-1">Photoshop</p>
                   </Items>
                   <Items>
                     <SiFigma size={40} />
-                    <p className="mt-1">UI/UX</p>
+                    <p className="mt-1">Figma</p>
                   </Items>
-                </TabPanel>
+                </Tab.Panel>
 
                 {/* Portfolio */}
-                <TabPanel className="py-3 grid grid-cols-2 lg:grid-cols-4 gap-3">
-                  {portfolio.map((item) => (
-                    <Items>
-                      <h1>{item.tittle}</h1>
-                      <h1>{item.description}</h1>
-                      <h1>{item.repo}</h1>
-                    </Items>
-                  ))}
-                </TabPanel>
+                <Tab.Panel className="py-3 grid grid-cols-2 lg:grid-cols-4 gap-3">
+                  {portfolio.map(
+                    ({ thumb, tittle, repo, description, live }) => (
+                      <Items>
+                        <img
+                          className="rounded-lg"
+                          src={thumb}
+                          alt="thumbnail"
+                        />
+                        <div className="mt-2">
+                          <h1 className="text-xl font-bold">{tittle}</h1>
+                          <h1>{description}</h1>
+                        </div>
+                        <div className="mt-2 flex gap-6 items-center">
+                          <a href={repo} target="_blank" rel="noreferrer">
+                            <button>
+                              <FaCode size={25} />
+                            </button>
+                          </a>
+                          <a href={live} target="_blank" rel="noreferrer">
+                            <button>
+                              <FaGlobe size={25} />
+                            </button>
+                          </a>
+                        </div>
+                      </Items>
+                    )
+                  )}
+                </Tab.Panel>
                 {/* Testmonial */}
-                <TabPanel className="py-3 grid grid-cols-2 lg:grid-cols-4 gap-3">
+                <Tab.Panel className="py-3 grid grid-cols-2 lg:grid-cols-4 gap-3">
                   {portfolio.map((item) => (
                     <Items>
                       <h1>{item.tittle}</h1>
@@ -148,9 +209,9 @@ function App() {
                       <h1>{item.repo}</h1>
                     </Items>
                   ))}
-                </TabPanel>
-              </div>
-            </Tabs>
+                </Tab.Panel>
+              </Tab.Panels>
+            </Tab.Group>
           </main>
         </div>
 
