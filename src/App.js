@@ -9,7 +9,7 @@ function App() {
       <div className="grid grid-rows-1 lg:grid-cols-2 lg:h-screen ">
         {/* Details Section */}
         <div
-          className="lg:h-full bg-slate-900  text-white p-8 order-2"
+          className="lg:h-full bg-slate-900  text-white p-8 lg:order-1 order-2"
          
         >
           <header>
@@ -68,10 +68,9 @@ function App() {
         </div>
 
         {/* Profile Image Section */}
-        <div className="lg:h-screen bg-white" style={{ height: "60vh" }}>
+        <div className="lg:h-screen bg-white lg:order-2 order-1" >
           <img
             className="w-full lg:h-screen grayscale hover:grayscale-0 transition ease-in-out delay-150 object-cover"
-            style={{ height: "60vh" }}
             src={myPhoto}
             alt=""
           />
