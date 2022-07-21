@@ -28,7 +28,7 @@ import { portfolio } from "./portfolio";
 
 function App() {
   return (
-    <div className="bg-white h-auto">
+    <div className="bg-white h-auto w-full">
       <div className="grid grid-rows-1 lg:grid-cols-2 lg:h-screen ">
         {/* Details Section */}
         <div className="lg:h-full  bg-slate-900  text-white lg:p-8 pt-8 lg:order-1 order-2">
@@ -146,7 +146,7 @@ function App() {
                   </Items>
                   <Items>
                     <FaPython size={40} />
-                    <p className="mt-1">Pythone</p>
+                    <p className="mt-1">Python</p>
                   </Items>
                   <Items>
                     <SiAdobeaftereffects size={40} />
